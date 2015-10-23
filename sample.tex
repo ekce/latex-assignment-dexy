@@ -1,0 +1,158 @@
+\newcommand{\preamblefolder}{./include}
+\input{\preamblefolder/00.main.tex} %main packages
+\input{\preamblefolder/10.tikz.tex} %tikz packages
+\input{\preamblefolder/20.commands.tex} %functions and commands
+
+%--------------title stuff
+%\usepackage[enable]{my-easy-todo} %local modified version of easy-todo
+
+%pdftex needs to be almost the last package loaded
+\usepackage[pdfauthor={Mohamar Rios Flores},%
+            pdftitle={MATH 999 - Assignment 9},%
+            pdffitwindow=false,%
+            bookmarks=false,%
+            unicode=true,%
+            pdftex]{hyperref}
+\usepackage{amsrefs} %AMS refs, needs to be loaded after hyperref
+
+
+\title{MATH 999 -- Assignment 9}
+\author{
+  Rios Flores, Mohamar\\
+  \texttt{mohamar.rios@gmail.com}%\\
+%   {\small Collaborators:
+%   Friesen, Alexis;
+%   Mardon, Todd;
+%   Vooys, Geoff;
+%   Glin, Danny}
+%
+% \and
+% Last, First\\
+% \texttt{email@dom.com}
+  }
+%--------------\title stuff
+
+\begin{document}
+  %--------------header stuff
+  %\pgfdeclarelayer{background}
+  %\pgfdeclarelayer{foreground}
+  %\pgfsetlayers{background,main,foreground}
+  
+  \maketitle
+  %\tableofcontents
+  %\section{some interesting words}
+  %--------------\header stuff
+
+\section*{Explanation of packages}
+
+\section*{Examples}
+  \begin{enumerate}
+
+    \item
+      Here are two different ways of writing an equation array. The \textit{IEEEeqnarray} version looks a little better and has slightly better functionality when it comes to line referencing and labels but it is more cumbersome to write than the \textit{align} version.
+
+      \textbf{Note:} I'm using the \textit{enumitem} package for the \textit{enumerate} environment. It lets me manually define the numbering format and even give an explicit label.
+      
+      \begin{enumerate}[label = --\alph*--$>$]
+
+      \item
+        This is written using the align environment.
+
+        \begin{align*}
+          4xyzw
+          &= 2\cdot2tu \\
+          &\le 2\cdot(t^2+u^2)                    \tag{a remark in parentheses} \\
+          &= 2\cdot((xy)^2+(zw)^2) \\
+          &= 2\cdot(x^2y^2+z^2w^2)                \tag*{a remark without parentheses} \\
+          &= 2x^2y^2+2z^2w^2 \\
+          &\le ((x^2)^2+(y^2)^2)+((z^2)^2)+(w^2)^2) \\
+          &= x^4+y^4+z^4+w^4                      \qedhere
+        \end{align*}
+      
+      \item
+        This is the same math written using the IEEEeqnarray environment.
+
+        \textbf{Note:} I'm also calling \textit{renewcommand} on the QED symbol (the square), this lets me temporarily switch over to a contradiction symbol (defined in my preamble).
+
+        \renewcommand{\qedsymbol}{$\contradiction$}
+
+        \begin{IEEEeqnarray*}{rCl"s}
+          4xyzw 
+          &=& 2\cdot2tu             & \\
+          &\le& 2\cdot(t^2+u^2)     & (a remark in parentheses) \\
+          &=& 2\cdot((xy)^2+(zw)^2) & \\
+          &=& 2\cdot(x^2y^2+z^2w^2) & a remark without parentheses \\
+          &=& 2x^2y^2+2z^2w^2       & \\
+          &\le& ((x^2)^2+(y^2)^2)+((z^2)^2)+(w^2)^2) & \\
+          &=& x^4+y^4+z^4+w^4       & \qedhere
+        \end{IEEEeqnarray*}
+
+      \end{enumerate}
+
+    \item
+      Here are some examples of commutative diagrams. They're made using \textit{tikz} with the tikzlibrary \textit{cd}. 
+
+      \begin{enumerate}
+        \item[\textbf{Simple Diagram:}]
+
+          \begin{equation*}
+            \begin{tikzcd}
+              A \arrow[r] \arrow[rd] & B \arrow[d] \arrow[rd] \\
+                          & C \arrow[r] & D
+            \end{tikzcd}
+          \end{equation*}
+
+        \item[\textbf{Complex Diagram:}]
+
+          \begin{equation*}
+            \begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
+              & f^* E_V \arrow[dl] \arrow[rr, red] \arrow[dd, Rightarrow] & & E_V \arrow[dl] \arrow[dd] \\
+              f^* E \arrow[rr, crossing over, blue] \arrow[dd] & & E \\
+              & U \arrow[dl] \arrow[rr, bend left=20] \arrow[rr, bend right=20] & & V \arrow[dl] \\
+              M \arrow[rr, "\varphi"] & & N \arrow[from=uu, crossing over]\\
+            \end{tikzcd}
+          \end{equation*}
+
+      \end{enumerate}
+
+  \end{enumerate}
+
+  %--------------footer stuff
+  \begin{bibdiv}
+    \begin{biblist}
+      \bib{Steen}{book}{
+        title={Counterexamples in Topology},
+        author={Steen, Lynn Arthur},
+        author={Seebach, J. Arthur, Jr.},
+        volume={18},
+        year={1978},
+        publisher={Springer}
+      }
+      \bib{Dasgupta}{book}{
+        title = {Set Theory: With an Introduction to Real Point Sets},
+        author = {Dasgupta, Abhijit},
+        year = {2014},
+        publisher = {Springer Science \& Business Media}
+      }
+      \bib{Landau}{book}{
+        title = {Foundations of Analysis},
+        volume={79},
+        author = {Landau, Edmund},
+        date = {1966},
+        publisher = {American Mathematical Soc.},
+        address = {Providence}
+      }
+      \bib{Suppes}{book}{
+        title = {Axiomatic Set Theory},
+        author = {Suppes, Patrick},
+        date = {1972},
+        publisher = {Dover Publications, Inc.},
+        address = {New York}
+      }
+    \end{biblist}
+  \end{bibdiv}
+  %--------------\footer stuff
+  
+\end{document}
+
+%http://tex.stackexchange.com/questions/40492/what-are-the-differences-between-align-equation-and-displaymath

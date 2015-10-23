@@ -1,0 +1,51 @@
+\RequirePackage[l2tabu, orthodox]{nag} %checks for obsolete habits and stuff
+
+%\documentclass[letterpaper]{article}
+\documentclass[letterpaper]{scrartcl} %KOMA article
+  %article    scrartcl
+  %report     scrreprt
+  %book     scrbook
+  %letter     sclttr2
+
+\setkomafont{disposition}{\normalfont} %Sets KOMA title font
+
+%\usepackage[all,error]{onlyamsmath}  % Error on deprecated math commands like $$ $$.
+%\RequirePackage{fixmath}
+%\RequirePackage{kvoptions}
+\usepackage{isomath} %Makes math conform to ISO 80000-2 mathematical style. Includes fixmath and kvoptions
+
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage} %sets the margins to a full size page (preprint bundle)
+
+\usepackage[sc]{mathpazo} %Palatino fonts
+%\usepackage[osf]{mathpazo} %Palatino fonts with oldstyle numbers and smallcaps
+\AtBeginDocument{%uses AMS mathbb fonts
+  \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+  \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+}
+\linespread{1.05} %vertical spacing between lines
+\usepackage{mathrsfs} %Support for \mathscr fonts
+
+%\usepackage{scrextend} %KOMA Script package, provides addmargin environment
+\usepackage{wrapfig}
+\usepackage{microtype} %nicer kerning
+  %\microtypesetup{activate=false}
+  %\@ifpackageloaded{microtype}
+%\usepackage[english]{isodate}
+
+\usepackage{color}
+
+\usepackage{amsmath} %AMS math
+\usepackage{amsthm} %AMS theorem
+\usepackage{amssymb} %AMS mathbb and other stuff
+\usepackage{mathtools} % Extension to amsmath, used by norm definition
+
+\usepackage{esvect} %Vector stuff
+\usepackage[retainorgcmds]{IEEEtrantools} %IEEEeqnarray environment
+\usepackage{enumitem} %Fancy enumerate environment
+\usepackage{verbatim} %Multiline comment environment
+\usepackage{array} %Fancy array environment
+\usepackage{cancel} %Provides \cancel for crossing out other symbols
+
+\usepackage{fourier-orns} %fourier ornaments for sword contradiction
+\usepackage{dtklogos} %logos

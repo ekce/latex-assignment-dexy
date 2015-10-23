@@ -1,0 +1,69 @@
+%special functions
+%Set Theory
+\DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{#1} %cardinality
+\DeclareMathOperator{\pow}{\mathcal{P}} %power set
+%Graph Theory
+\DeclareMathOperator{\gver}{V}
+\DeclareMathOperator{\gedg}{E}
+\DeclareMathOperator{\gdis}{d}
+\DeclareMathOperator{\gdeg}{deg}
+\DeclareMathOperator{\gclo}{C}
+%Topology
+\DeclareMathOperator{\tn}{N} %Neighborhood
+\DeclareMathOperator{\tbd}{bd} %Boundary points
+\DeclareMathOperator{\tint}{int} %Interior points
+\DeclareMathOperator{\tacc}{acc} %Accumulation points
+\DeclareMathOperator{\tiso}{iso} %Isolated points
+\DeclareMathOperator{\tcl}{cl} %Closure
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\dis}{dis} %Discrete topology
+\DeclareMathOperator{\indis}{indis} %Indiscrete topology
+\DeclareMathOperator{\dist}{d} %distance (metric)
+\DeclareMathOperator{\der}{Der} %derived set
+%Analysis
+\newcommand{\ud}{\,\mathrm{d}}
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
+\renewcommand*{\Vec}[1]{\vv{\mathbf{#1}}}%
+%Number Theory
+\DeclareMathOperator{\lcm}{lcm}
+%Computability
+\newcommand{\monus}{\stackrel{{}^{\scriptstyle .}}{\smash{-}}} % monus
+\DeclareMathOperator{\lt}{lt}
+\DeclareMathOperator{\halted}{halted}
+
+
+%theorems, definitions, lemmas
+\newtheorem*{thm}{Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{lem}{Lemma}
+%\newtheorem*{ore}{Ore's Theorem}
+
+
+%special symbols/commands
+\newcommand{\contradiction}{{\hbox{%
+    \setbox0=\hbox{$\mkern-3mu\times\mkern-3mu$}%
+    \setbox1=\hbox to0pt{\hss$\times$\hss}%
+    \copy0\raisebox{0.5\wd0}{\copy1}\raisebox{-0.5\wd0}{\box1}\box0
+}}} %contradiction hash
+%\newcommand{\scontradiction}{\textxswup} %swords
+\newcommand*\Heq{\ensuremath{\overset{\kern2pt l'H}{=}}}
+\newcommand{\ts}{\textsuperscript} % text version of ^
+\newcommand*{\mathcolor}{} %mathcolor
+\def\mathcolor#1#{\mathcoloraux{#1}} %mathcolor
+\newcommand*{\mathcoloraux}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+} %mathcolor
+\newcommand{\aspace}{\vspace{2.5\baselineskip}} % Used for spaces between a question and its answer.
+\newcommand{\qspace}{\vspace{1.5\baselineskip}} % Used for spaces between different questions.
+%\newcommand{\saspace}{\vspace{1.5\baselineskip}}
+%\newcommand{\sqspace}{\vspace{0.5\baselineskip}}
+
+
+%Alternate QED symbols.
+%\renewcommand{\qedsymbol}{$\contradiction$}
+%\renewcommand{\qedsymbol}{\textxswup}
+%\renewcommand{\qedsymbol}{$\square$}
