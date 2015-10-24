@@ -1,70 +1,68 @@
-%special functions
-%Set Theory
-\DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{#1} %cardinality
-\DeclareMathOperator{\pow}{\mathcal{P}} %power set
-%Graph Theory
-\DeclareMathOperator{\gver}{V}
-\DeclareMathOperator{\gedg}{E}
-\DeclareMathOperator{\gdis}{d}
-\DeclareMathOperator{\gdeg}{deg}
-\DeclareMathOperator{\gclo}{C}
-%Topology
-\DeclareMathOperator{\tn}{N} %Neighborhood
-\DeclareMathOperator{\tbd}{bd} %Boundary points
-\DeclareMathOperator{\tint}{int} %Interior points
-\DeclareMathOperator{\tacc}{acc} %Accumulation points
-\DeclareMathOperator{\tiso}{iso} %Isolated points
-\DeclareMathOperator{\tcl}{cl} %Closure
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\dis}{dis} %Discrete topology
-\DeclareMathOperator{\indis}{indis} %Indiscrete topology
-\DeclareMathOperator{\dist}{d} %distance (metric)
-\DeclareMathOperator{\der}{Der} %derived set
-%Analysis
-\newcommand{\ud}{\,\mathrm{d}}
-\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
-\renewcommand*{\Vec}[1]{\vv{\mathbf{#1}}}%
-%Number Theory
-\DeclareMathOperator{\lcm}{lcm}
-%Computability
-\newcommand{\monus}{\stackrel{{}^{\scriptstyle .}}{\smash{-}}} % monus
-\DeclareMathOperator{\lt}{lt}
-\DeclareMathOperator{\halted}{halted}
+% Topic specific commands
+	% Set Theory
+		\DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{#1}            % Cardinality function, depends on mathtools package.
+		\DeclareMathOperator{\pow}{\mathcal{P}}                           % Power set function.
+	% Graph Theory
+		\DeclareMathOperator{\gver}{V}                                    % Vertex set function.
+		\DeclareMathOperator{\gedg}{E}                                    % Edge set function.
+		\DeclareMathOperator{\gdis}{d}                                    % Distance function.
+		\DeclareMathOperator{\gdeg}{deg}                                  % Degree function.
+		\DeclareMathOperator{\gclo}{C}                                    % Closure function.
+	% Topology
+		\DeclareMathOperator{\tn}{N}                                      % Neighborhood function.
+		\DeclareMathOperator{\tbd}{bd}                                    % Set of Boundary points function.
+		\DeclareMathOperator{\tint}{int}                                  % Set of Interior points function.
+		\DeclareMathOperator{\tacc}{acc}                                  % Set of Accumulation points function.
+		\DeclareMathOperator{\tiso}{iso}                                  % Set of Isolated points function.
+		\DeclareMathOperator{\tcl}{cl}                                    % Closure function.
+		\DeclareMathOperator{\sgn}{sgn}                                   % Signum function.
+		\DeclareMathOperator{\dis}{dis}                                   % Discrete topology function.
+		\DeclareMathOperator{\indis}{indis}                               % Indiscrete topology function.
+		\DeclareMathOperator{\dist}{d}                                    % Distance (metric) function.
+		\DeclareMathOperator{\der}{Der}                                   % Derived set function.
+	% Analysis
+		\newcommand*\Heq{\ensuremath{\overset{\kern2pt l'H}{=}}}          % An equal sign with l'H written above it for use with l'hopital theorem.
+		\newcommand{\ud}{\,\mathrm{d}}                                    % Upright d with a space, for calculus infinitesimals.
+		\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}            % Norm function, depends on mathtools package.
+		\renewcommand*{\Vec}[1]{\vv{\mathbf{#1}}}                         % Bold vectors with overline, depends on esvect package.
+	% Number Theory
+		\DeclareMathOperator{\lcm}{lcm}                                   % Lowest Common Multiple function.
+	% Computability
+		\newcommand{\monus}{\stackrel{{}^{\scriptstyle .}}{\smash{-}}}    % Monus operator.
+		\DeclareMathOperator{\lt}{lt}                                     % Length function.
+		\DeclareMathOperator{\halted}{halted}                             % Halted function.
 
 
-%theorems, definitions, lemmas
-\newtheorem*{thm}{Theorem}
-\newtheorem*{defn}{Definition}
-\newtheorem*{cor}{Corollary}
-\newtheorem*{lem}{Lemma}
-%\newtheorem*{ore}{Ore's Theorem}
+% Theorems, definitions, lemmas, and such.
+\newtheorem*{thm}{Theorem}                                                % Defines theorem environment.
+\newtheorem*{defn}{Definition}                                            % Defines definition environment.
+\newtheorem*{cor}{Corollary}                                              % Defines corollary environment.
+\newtheorem*{lem}{Lemma}                                                  % Defines lemma environment.
+%\newtheorem*{ore}{Ore's Theorem}                                         % Example named theorem environment.
 
 
-%special symbols/commands
-\newcommand*\Heq{\ensuremath{\overset{\kern2pt l'H}{=}}} % An equal sign with l'H written above it for use with l'hopital theorem.
-\newcommand{\contradiction}{{\hbox{%
+% Special symbols/commands
+\newcommand{\contradiction}{{\hbox{%                                      % A contradiction hash symbol for QED.
     \setbox0=\hbox{$\mkern-3mu\times\mkern-3mu$}%
     \setbox1=\hbox to0pt{\hss$\times$\hss}%
     \copy0\raisebox{0.5\wd0}{\copy1}\raisebox{-0.5\wd0}{\box1}\box0
-}}}                                                      % A contradiction hash symbol for QED
-\newcommand{\ts}{\textsuperscript}                       % Text version of ^
-\newcommand*{\mathcolor}{}                               % mathmode version of color
+}}}
+\newcommand{\ts}{\textsuperscript}                                        % Text-mode version of ^ (superscript).
+\newcommand*{\mathcolor}{}                                                % math-mode version of \color.
 \def\mathcolor#1#{\mathcoloraux{#1}}
 \newcommand*{\mathcoloraux}[3]{%
-  \protect\leavevmode
-  \begingroup
-    \color#1{#2}#3%
-  \endgroup
+	\protect\leavevmode
+	\begingroup
+		\color#1{#2}#3%
+	\endgroup
 }
 
 
-%Vertical spacing commands
-\newcommand{\aspace}{\vspace{2.5\baselineskip}}          % Used for spaces between a question and its answer.
-\newcommand{\qspace}{\vspace{1.5\baselineskip}}          % Used for spaces between different questions.
-%\newcommand{\saspace}{\vspace{1.5\baselineskip}}
-%\newcommand{\sqspace}{\vspace{0.5\baselineskip}}
+% Vertical spacing commands
+\newcommand{\aspace}{\vspace{2.5\baselineskip}}                           % Used for spaces between a question and its answer.
+\newcommand{\qspace}{\vspace{1.5\baselineskip}}                           % Used for spaces between different questions.
 
 
-%Alternate QED symbols.
+% How to change QED symbols.
 %\renewcommand{\qedsymbol}{$\contradiction$}
 %\renewcommand{\qedsymbol}{$\square$}

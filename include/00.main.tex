@@ -1,34 +1,34 @@
 \RequirePackage[l2tabu, orthodox]{nag}        % Checks for obsolete habits and stuff, must be called first.
-\RequirePackage{fixltx2e}                     % implement LaTeX2 fixes
+%\RequirePackage{fixltx2e}                     % Implements LaTeX2 fixes.
 
 % Document class and typography packages
-\documentclass[letterpaper]{scrartcl}         % KOMA-Script article class
-\setkomafont{disposition}{\normalfont}        % Sets KOMA title font
-\usepackage{fullpage}                         % Sets the margins to a full size page (preprint bundle)
-\usepackage{microtype}                        % nicer kerning
+\documentclass[letterpaper]{scrartcl}         % KOMA-Script article class.
+\setkomafont{disposition}{\normalfont}        % Sets KOMA-Script title font.
+\usepackage{fullpage}                         % Sets the margins to a full size page (preprint bundle).
+\usepackage{microtype}                        % Nicer kerning.
 
 
 % Input encoding and standards packages
 \usepackage{isomath}                          % Makes math conform to ISO 80000-2 mathematical style. Includes fixmath and kvoptions packages.
-\usepackage[utf8]{inputenc}                   % Sets the input encoding to UTF-8
+\usepackage[utf8]{inputenc}                   % Sets the input encoding to UTF-8.
 
 
 % Font packages and commands
-\usepackage[sc]{mathpazo}                     % Provides Palatino typeface, options: sc = smallcaps, osf = oldstyle numerals
-\AtBeginDocument{                             % Provides AMS mathbb fonts
+\usepackage[sc]{mathpazo}                     % Provides Palatino typeface, options: sc = smallcaps, osf = oldstyle numerals.
+\AtBeginDocument{                             % Provides AMS mathbb fonts.
   \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
   \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
 }
 \linespread{1.05}                             % Changes the vertical spacing between lines as recommended for Palatino fonts.
-\usepackage{mathrsfs}                         % Support for script (\mathscr) fonts
-\usepackage{dtklogos}                         % Provides logos like \LaTex
+\usepackage{mathrsfs}                         % Support for script (\mathscr) fonts.
+\usepackage{dtklogos}                         % Provides logos like \LaTex.
 
 
 % AMS math packages
-\usepackage{amsmath}                          % AMS math
-\usepackage{amsthm}                           % AMS theorem
-\usepackage{amssymb}                          % AMS mathbb and other stuff
-\usepackage{mathtools}                        % Extension to amsmath, provides \DeclarePairedDelimiterX
+\usepackage{amsmath}                          % AMS math.
+\usepackage{amsthm}                           % AMS theorem.
+\usepackage{amssymb}                          % AMS mathbb and other stuff.
+\usepackage{mathtools}                        % Extension to amsmath, provides \DeclarePairedDelimiterX.
 
 
 % Functionality providing packages
@@ -42,5 +42,4 @@
 \usepackage{enumitem}                         % Fancy enumerate environment.
 \usepackage{array}                            % Fancy array environment.
 \usepackage[pdfusetitle]{hyperref}            % Provides support for hyperlinks.
-\usepackage{amsrefs}                          % Provides an environment for handling references and citations, needs to be loaded after hyperref
-
+\usepackage{amsrefs}                          % Provides an environment for handling references and citations, needs to be loaded after hyperref.
