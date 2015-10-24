@@ -26,3 +26,12 @@ The remaining commands just include each of the documents. This makes it easy to
 The manual file gives a brief overview of why I've chosen the packages I have. I don't provide a thorough explanation of the packages as that would take too much space. I don't expect other users to agree with all of my package choices but I hope this gives them an idea of what other options exist.
 
 The sample file presents a simple example assignment.
+
+## How to use:
+clone the repository with
+```
+git clone https://github.com/ekce/latex-assignment.git
+```
+and then begin writing a tex file based on the sample file provided.
+
+**Note:** The gitignore file is set up to ignore everything but the files in the repository so it will not track updates to your files.
