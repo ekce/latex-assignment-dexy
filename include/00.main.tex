@@ -1,51 +1,46 @@
-\RequirePackage[l2tabu, orthodox]{nag} %checks for obsolete habits and stuff
+\RequirePackage[l2tabu, orthodox]{nag}        % Checks for obsolete habits and stuff, must be called first.
+\RequirePackage{fixltx2e}                     % implement LaTeX2 fixes
 
-%\documentclass[letterpaper]{article}
-\documentclass[letterpaper]{scrartcl} %KOMA article
-  %article    scrartcl
-  %report     scrreprt
-  %book     scrbook
-  %letter     sclttr2
+% Document class and typography packages
+\documentclass[letterpaper]{scrartcl}         % KOMA-Script article class
+\setkomafont{disposition}{\normalfont}        % Sets KOMA title font
+\usepackage{fullpage}                         % Sets the margins to a full size page (preprint bundle)
+\usepackage{microtype}                        % nicer kerning
 
-\setkomafont{disposition}{\normalfont} %Sets KOMA title font
 
-%\usepackage[all,error]{onlyamsmath}  % Error on deprecated math commands like $$ $$.
-%\RequirePackage{fixmath}
-%\RequirePackage{kvoptions}
-\usepackage{isomath} %Makes math conform to ISO 80000-2 mathematical style. Includes fixmath and kvoptions
+% Input encoding and standards packages
+\usepackage{isomath}                          % Makes math conform to ISO 80000-2 mathematical style. Includes fixmath and kvoptions packages.
+\usepackage[utf8]{inputenc}                   % Sets the input encoding to UTF-8
 
-\usepackage[utf8]{inputenc}
-\usepackage{fullpage} %sets the margins to a full size page (preprint bundle)
 
-\usepackage[sc]{mathpazo} %Palatino fonts
-%\usepackage[osf]{mathpazo} %Palatino fonts with oldstyle numbers and smallcaps
-\AtBeginDocument{%uses AMS mathbb fonts
+% Font packages and commands
+\usepackage[sc]{mathpazo}                     % Provides Palatino typeface, options: sc = smallcaps, osf = oldstyle numerals
+\AtBeginDocument{                             % Provides AMS mathbb fonts
   \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
   \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
 }
-\linespread{1.05} %vertical spacing between lines
-\usepackage{mathrsfs} %Support for \mathscr fonts
+\linespread{1.05}                             % Changes the vertical spacing between lines as recommended for Palatino fonts.
+\usepackage{mathrsfs}                         % Support for script (\mathscr) fonts
+\usepackage{dtklogos}                         % Provides logos like \LaTex
 
-%\usepackage{scrextend} %KOMA Script package, provides addmargin environment
-\usepackage{wrapfig}
-\usepackage{microtype} %nicer kerning
-  %\microtypesetup{activate=false}
-  %\@ifpackageloaded{microtype}
-%\usepackage[english]{isodate}
 
-\usepackage{color}
+% AMS math packages
+\usepackage{amsmath}                          % AMS math
+\usepackage{amsthm}                           % AMS theorem
+\usepackage{amssymb}                          % AMS mathbb and other stuff
+\usepackage{mathtools}                        % Extension to amsmath, provides \DeclarePairedDelimiterX
 
-\usepackage{amsmath} %AMS math
-\usepackage{amsthm} %AMS theorem
-\usepackage{amssymb} %AMS mathbb and other stuff
-\usepackage{mathtools} % Extension to amsmath, used by norm definition
 
-\usepackage{esvect} %Vector stuff
-\usepackage[retainorgcmds]{IEEEtrantools} %IEEEeqnarray environment
-\usepackage{enumitem} %Fancy enumerate environment
-\usepackage{verbatim} %Multiline comment environment
-\usepackage{array} %Fancy array environment
-\usepackage{cancel} %Provides \cancel for crossing out other symbols
+% Functionality providing packages
+%\usepackage{scrextend}                       % KOMA-Script package, provides addmargin environment, not necessary if using KOMA-Script article class.
+\usepackage{color}                            % Provides text-mode only text coloring.
+\usepackage{cancel}                           % Provides \cancel for crossing out other symbols.
+\usepackage{esvect}                           % Lets you typeset vector arrows with \vv{AB}.
+\usepackage[retainorgcmds]{IEEEtrantools}     % IEEEeqnarray environment.
+\usepackage{wrapfig}                          % Provides environment to let text wrap around figures.
+\usepackage{verbatim}                         % Provides a block comment environment.
+\usepackage{enumitem}                         % Fancy enumerate environment.
+\usepackage{array}                            % Fancy array environment.
+\usepackage[pdfusetitle]{hyperref}            % Provides support for hyperlinks.
+\usepackage{amsrefs}                          % Provides an environment for handling references and citations, needs to be loaded after hyperref
 
-\usepackage{fourier-orns} %fourier ornaments for sword contradiction
-\usepackage{dtklogos} %logos

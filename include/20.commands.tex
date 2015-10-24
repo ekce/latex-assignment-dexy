@@ -41,29 +41,30 @@
 
 
 %special symbols/commands
+\newcommand*\Heq{\ensuremath{\overset{\kern2pt l'H}{=}}} % An equal sign with l'H written above it for use with l'hopital theorem.
 \newcommand{\contradiction}{{\hbox{%
     \setbox0=\hbox{$\mkern-3mu\times\mkern-3mu$}%
     \setbox1=\hbox to0pt{\hss$\times$\hss}%
     \copy0\raisebox{0.5\wd0}{\copy1}\raisebox{-0.5\wd0}{\box1}\box0
-}}} %contradiction hash
-%\newcommand{\scontradiction}{\textxswup} %swords
-\newcommand*\Heq{\ensuremath{\overset{\kern2pt l'H}{=}}}
-\newcommand{\ts}{\textsuperscript} % text version of ^
-\newcommand*{\mathcolor}{} %mathcolor
-\def\mathcolor#1#{\mathcoloraux{#1}} %mathcolor
+}}}                                                      % A contradiction hash symbol for QED
+\newcommand{\ts}{\textsuperscript}                       % Text version of ^
+\newcommand*{\mathcolor}{}                               % mathmode version of color
+\def\mathcolor#1#{\mathcoloraux{#1}}
 \newcommand*{\mathcoloraux}[3]{%
   \protect\leavevmode
   \begingroup
     \color#1{#2}#3%
   \endgroup
-} %mathcolor
-\newcommand{\aspace}{\vspace{2.5\baselineskip}} % Used for spaces between a question and its answer.
-\newcommand{\qspace}{\vspace{1.5\baselineskip}} % Used for spaces between different questions.
+}
+
+
+%Vertical spacing commands
+\newcommand{\aspace}{\vspace{2.5\baselineskip}}          % Used for spaces between a question and its answer.
+\newcommand{\qspace}{\vspace{1.5\baselineskip}}          % Used for spaces between different questions.
 %\newcommand{\saspace}{\vspace{1.5\baselineskip}}
 %\newcommand{\sqspace}{\vspace{0.5\baselineskip}}
 
 
 %Alternate QED symbols.
 %\renewcommand{\qedsymbol}{$\contradiction$}
-%\renewcommand{\qedsymbol}{\textxswup}
 %\renewcommand{\qedsymbol}{$\square$}

@@ -1,0 +1,189 @@
+\newcommand{\preamblefolder}{./include}       %preamble folder location
+\input{\preamblefolder/00.main.tex}           %main packages
+\input{\preamblefolder/10.tikz.tex}           %tikz packages
+\input{\preamblefolder/20.commands.tex}       %functions and commands
+
+\usepackage[enable]{easy-todo}
+
+%--------------title stuff
+\title{Modular \LaTeX{} Preamble Manual}
+\author{
+  Rios, Mohamar\\
+  \texttt{mohamar.rios@gmail.com}
+}
+%--------------\title stuff
+
+\begin{document}
+  %--------------header stuff
+  \maketitle
+  \tableofcontents
+  %--------------\header stuff
+ 
+  \begin{abstract}
+    I do all of my \LaTeX{} development using this modular preamble. I've never seen a similar technique described elsewhere but I've found it very useful. The idea comes from the way that configuration files are managed in some linux programs such as Grub and The X Window System.
+
+    Here I'm providing a slightly more detailed explanation of each of the packages in my preamble (there are short comments after each package in the file itself). I'm doing this because many of the packages are more geared towards typography and are as such not the type of thing you're likely to encounter unless you actually go looking for it.
+
+    The preamble itself is modular. Meaning it's split up into many smaller documents that handle something different. There is a section for each part of it.
+  \end{abstract}
+  
+  \section{00.main.tex}\label{main}
+    
+    This document contains all of the main packages I use.
+
+    \subsection{Some preliminary sanity checking packages}
+      There are two optional packages that I call before everything else.
+
+      The \textbf{nag} package doesn't actually make any changes to your document. Instead all it does is tell \LaTeX{} to throw warnings whenever it sees anything considered bad form or obsolete. Refer to the famous \textit{l2tabuen} document for more information.
+
+      The current version of \LaTeX{} is \LaTeXe, but there has been a \LaTeX{} 3 version in the works since the early 1990s. The project has stalled and there are many doubts about it ever being completed but in the meantime a series of bugfixes have been released as the package, \textbf{fixltx2e}. In really recent versions of \LaTeX{} (as of this year) these bugfixes are already implemented and if you include it then you will get a harmless warning when you compile.
+
+    \subsection{The Document class and typography packages}
+      Here is the main set of packages that really affect the look and feel of the document.
+
+      I use the \textbf{KOMA-script} family of document classes. They are very similar to the default family of document classes except that they also provide by default a number of useful commands and environments that are more geared toward typography. This includes the \textbf{addmargin} environment that lets you indent blocks of text. There are four classes provided though I typically only use the article class, \textbf{scrartcl}. Here is a list of all the document classes it supports.
+
+      \begin{addmargin}{1cm}
+        \begin{description}
+          \item[scrartcl] The KOMA-Script article class.
+          \item[scrreprt] The KOMA-Script report class.
+          \item[scrbook] The KOMA-Script book class.
+          \item[sclttr2] The KOMA-Script letter class.
+        \end{description} 
+      \end{addmargin}
+
+      Alternatively it is possible to only include parts of KOMA-script (as individual packages) within another class. For instance, if you wanted to use the \textbf{addmargin} environment in the default \textbf{article} document class then you would include the package \textbf{scrextend} within your document.
+
+      Note that I manually set the font for the document title so that it matches the default article class more closely using the command \textbackslash setkomafont.
+
+      The \textbf{fullpage} package makes the margins smaller so that the page appears ``full size'', as in a preprint.
+
+      The \textbf{microtype} package is difficult to explain but easy to understand once you see it. Essentially it makes use of new \LaTeX{} typographical features that are aimed at improving kerning in a document. The only case where you may not want to use it is when presenting numbers in a table as it will try to line them up in a weird looking way ~\cite{Khirevich}.
+
+    \subsection{Input encoding and math standards packages}
+      There are two packages that I use to manage general standards.
+
+      The \textbf{isomath} package makes a few changes to the way math is rendered so that it conforms to the international standard, \textbf{ISO 80000-2}.
+
+      The \textbf{inputenc} package lets one set the input encoding to \textbf{UTF-8} so that special characters will work in the source code.
+
+    \subsection{Font packages and commands}
+      Next are fonts.
+
+      I use the \textbf{mathpazo} package which provides the \textit{Palatino} (text and math) typeface because I find it a little nicer to read. It's also a little thicker than the default \textit{computer modern} typeface which is good since \textit{computer modern} was developed in an era before laser printing when text actually printed thicker on the page than it does now ~\cite{fatmodern}. \textbf{Note:} It is recommended to use a slightly different linespread (the vertical space between lines) when using \textit{Palatino}.
+
+      The next piece of code allows the use of the iconic blackboard bold fonts (eg. $\mathbb{R},\mathbb{Z},\ldots$) in Palatino.
+
+      Finally the \textbf{mathrsfs} package provides a nice uppercase script font (eg. $\mathscr{P},\mathscr{R},\mathscr{S},\ldots$) which give you a nice alternative to calligraphic fonts (eg. $\mathcal{P},\mathcal{R},\mathcal{S},\ldots$) in case you run out of letters.
+    
+    \subsection{AMS math packages}
+      Here's a series of AMS (American Mathematical Society) packages that most math students writing \LaTeX{} will be familiar with.
+
+      These are \textbf{amsmath}, \textbf{amsthm}, and \textbf{amssymb}. They provide many commands, environments, and redefine many \LaTeX{} commands so that they'll look nicer in a mathematical context (refer to ~\cite{equations}).
+
+      The \textbf{mathtools} package extends these by providing a few extra things such as a command that lets you define functions like $\norm{x}$ so you don't have to deal with keeping track of crazy left and right brackets.
+
+    \subsection{Functionality providing packages}
+      Finally we get to some more useful packages that don't just affect appearance.
+
+      The \textbf{color} package lets you \textcolor{blue}{color} text. Unfortunately this only works in text-mode. For a mathmode version refer to mathcolor in \nameref{commands}.
+
+      The \textbf{cancel} package provides a cancel function that lets you cross out stuff in math-mode (it's useful for stuff like counting arguments, eg. $a_1,\cancel{a_2},a_3,\cancel{a_4},\ldots$). It also lets you write the cancellation as an arrow (eg. $\cancelto{0}{\frac{1}{n}}$) but as you can see it doesn't play nice with inline text.
+      
+      The \textbf{esvect} package lets you write vectors with nice arrows displayed over them, (eg. $\vv{AB}$).
+
+      The \textbf{IEEEtrantools} package gives you a bunch of IEEE environments for typesetting equations nicely. The \textbf{IEEEeqnarray} in particular tends to be very useful (see examples on other document)
+
+      The \textbf{wrapfig} package provides an environment that lets you wrap text around figures. There are plenty of documentation and examples online, so I won't elaborate on this.
+
+      The \textbf{verbatim} package lets you comment out blocks of \LaTeX{} code with the \textbf{comment} environment. To see an example look at this part of the source code of this document. It is useful for debugging code since it lets you comment out large swaths of text without 
+      \begin{comment}
+        Here is a big comment.
+        It spans multiple lines.
+        \begin{equation}
+          a=b
+        \end{equation}
+        Even other environments inside it are commented out.
+      \end{comment}
+
+      The \textbf{enumitem} package extends the \textbf{enumerate}, \textbf{itemize}, and \textbf{description} environments so that they have some extra functionality with regards to labeling.  
+            
+      The \textbf{array} package extends the \textbf{array} and \textbf{tabular} environments so that they have some more formatting functionality.
+
+      The \textbf{hyperref} package allows the use of hyperlinks within the document. 
+
+      The \textbf{amsrefs} package gives a very simple \LaTeX{} environment that interfaces with bibtex (this handles citations).
+
+  \section{10.tikz.tex}\label{tikz}
+    
+    This document contains only the tikz related packages.
+
+    In this case it only calls the \textbf{tikz} package itself and the \textbf{cd} library for commutative diagrams. Having this separate allows one to quickly switch out libraries or packages easily without messing with the rest of the preamble (for instance if needing to draw automata or parse trees).
+  
+  \section{20.commands.tex}\label{commands}
+
+    This document provides a series of command definitions that are not directly provided by a package.
+
+    Anyone that writes a lot of \LaTeX{} tends to accumulate many of these. In some circles they are referred to as in-house commands. Many of these I made but a few I obtained from other users on stackexchange or other sources. You are likely to produce your own commands, probably different from these. As such I`ll only cover the few that I believe are particularly useful.
+
+    The command \textbf{\textbackslash contradiction} gives a contradiction symbol $\contradiction$ which can be used to replace $\square$ in the appropriate proofs. Though it's worth mentioning that there are many other popular contradiction symbols in use and no symbol has really become standard. I obtained this from stackexchange ~\cite{contradiction}.
+
+    The command \textbf{\textbackslash ts} lets you use superscripts in text mode. For instance if you want to talk about the 1\ts{st} of January. I obtained this from stackexchange ~\cite{textsup}.
+
+    The command \textbf{\textbackslash mathcolor} lets you use colors in math mode (eg. $a_1,\mathcolor{blue}{a_2},a_3,\mathcolor{red}{a_4},\ldots$). I obtained this from stackexchange ~\cite{mathcolor}.
+
+    I also use two simple vertical blank space commands \textbf{\textbackslash aspace} and \textbf{\textbackslash qspace}. They really just call \textbackslash vspace with a specific distance. I use these commands to create vertical blank spaces between a question and it's answer (\textbackslash aspace) and between two different questions. I know this probably isn't the best way to do this as it would actually be better to write a ``question'' environment but it's very simple and seems to get the job done. \textbf{Note:} I haven't found a satisfactory way of dealing with multipart questions.
+
+  \section{Extra packages}
+    There are a few packages that you'll only want to appear inside your actual tex document.
+    
+    The \textit{easy-todo} package lets you create todo items very quickly with the \textbackslash todo command \todo{This is an example}. Then you can turn the display of the todo-notes on and off by simply switching the option on the package from \textit{enable} to \textit{disable}. This package also lets you output a clickable list of all the todo's in the document together with their page number like this:
+
+    \listoftodos
+
+    Currently showing a list of all the todos throws a harmless warning due a bit of bad code and there is a fix floating around but for some reason it hasn't been fixed upstream. Either way it's harmless so don't worry if you see it.
+
+  %--------------footer stuff
+  \begin{bibdiv}
+    \begin{biblist}
+      \bib{Khirevich}{misc}{
+        title = {Tips on Writing a Thesis in LaTeX},
+        author = {Siarhei Khirevich (http://www.khirevich.com/)},
+        note = {URL: \url{http://www.khirevich.com/latex/microtype/} (version: 2015-10-24)},
+        organization = {Tex Stack Exchange}
+      }
+      \bib{fatmodern}{misc}{
+        title = {Fatter Computer Modern},
+        author = {NauC (http://tex.stackexchange.com/users/15946/nauc)},
+        note = {URL: \url{http://tex.stackexchange.com/a/101013} (version: 2013-03-05)},
+        organization = {Tex Stack Exchange}
+      }
+      \bib{equations}{misc}{
+        title = {What are the differences between \textdollar\textdollar, \textbackslash [, align, equation and displaymath?},
+        author = {Mico (http://tex.stackexchange.com/users/5001/mico)},
+        note = {URL: \url{http://tex.stackexchange.com/a/40531} (version: 2015-04-09)},
+        organization = {Tex Stack Exchange}
+      }
+      \bib{contradiction}{misc}{
+        title = {Is there a ``contradiction'' symbol in some font, somewhere?},
+        author = {Brian Kell (http://tex.stackexchange.com/users/15552/brian-kell)},
+        note = {URL: \url{http://tex.stackexchange.com/a/59617} (version: 2012-06-12)},
+        organization = {Tex Stack Exchange}
+      }
+      \bib{textsup}{misc}{
+        title = {What's the quickest way to write “2nd” “3rd” etc in LaTeX?},
+        author = {domwass (http://tex.stackexchange.com/users/1376/domwass)},
+        note = {URL: \url{http://tex.stackexchange.com/a/4119} (version: 2011-04-05)},
+        organization = {Tex Stack Exchange}
+      }
+      \bib{mathcolor}{misc}{
+        title = {Colored symbols},
+        author = {Heiko Oberdiek (http://tex.stackexchange.com/users/16967/heiko-oberdiek)},
+        note = {URL: \url{http://tex.stackexchange.com/a/85035} (version: 2012-11-30)},
+        organization = {Tex Stack Exchange}
+      }
+    \end{biblist}
+  \end{bibdiv}
+  %--------------\footer stuff
+  
+\end{document}
