@@ -1,5 +1,7 @@
 *
-!/include
+!/include/00.main.tex
+!/include/10.tikz.tex
+!/include/20.commands.tex
 !LICENSE.md
 !README.md
 !modular preamble manual.tex
