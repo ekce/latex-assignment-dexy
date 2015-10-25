@@ -1,5 +1,5 @@
 # latex-assignment
-This is a modular latex preamble for writing assignments together with a short manual and a sample document that's designed to alleviate some of the problems that come with assignment writing.
+This is a modular latex preamble for writing assignments together with a short manual, a sample document, and a blank document that are designed to alleviate some of the problems that come with assignment writing.
 
 The preamble is stored in the `include` directory and currently split into three parts.
 * `00.main.tex` - Stores all of the main packages used.
@@ -10,10 +10,10 @@ Note that currently some of the commands defined in `20.commands.tex` depend on 
 
 Inside the sample document there is a piece of code that looks like
 ```tex
-\newcommand{\preamblefolder}{./include}       %preamble folder location
-\input{\preamblefolder/00.main.tex}           %main packages
-\input{\preamblefolder/10.tikz.tex}           %tikz packages
-\input{\preamblefolder/20.commands.tex}       %functions and commands
+\newcommand{\preamblefolder}{./include}       % Preamble folder location
+\input{\preamblefolder/00.main.tex}           % Main packages
+\input{\preamblefolder/10.tikz.tex}           % Tikz packages
+\input{\preamblefolder/20.commands.tex}       % Functions and commands
 ```
 The first line sets the folder location where the preamble is stored. It is possible to easily change this to something else like:
 ```
@@ -27,11 +27,11 @@ The manual file gives a brief overview of why I've chosen the packages I have. I
 
 The sample file presents a simple example assignment.
 
-## How to use:
-clone the repository with
+## Workflow:
+Clone the repository with
 ```
 git clone https://github.com/ekce/latex-assignment.git
 ```
-and then begin writing a tex file based on the sample file provided.
+Copy the *blank.tex* file and rename it to something else like *assignment.tex*. Then edit said file to begin working.
 
 **Note:** The gitignore file is set up to ignore everything but the files in the repository so it will not track updates to your files.
