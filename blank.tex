@@ -1,0 +1,33 @@
+\newcommand{\preamblefolder}{./include}       %preamble folder location
+\input{\preamblefolder/00.main.tex}           %main packages
+\input{\preamblefolder/10.tikz.tex}           %tikz packages
+\input{\preamblefolder/20.commands.tex}       %functions and commands
+
+\usepackage[enable]{easy-todo} % enable = todo messages are visible, disable = todo messages are invisible.
+
+%--------------title stuff
+\title{MATH 999 -- Assignment 9}
+\author{
+  Last-Name, First-Name\\
+  \texttt{email@domain.com}
+}
+%--------------\title stuff
+
+\begin{document}
+  %--------------header stuff
+  \maketitle
+  %--------------\header stuff
+
+    \begin{enumerate}
+
+
+  %--------------footer stuff
+  \listoftodos
+
+  \begin{bibdiv}
+    \begin{biblist}
+    \end{biblist}
+  \end{bibdiv}
+  %--------------\footer stuff
+
+\end{document}
