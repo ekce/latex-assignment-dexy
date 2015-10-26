@@ -62,63 +62,79 @@
         \end{proof}
         \renewcommand{\qedsymbol}{$\square$}
 
-        Notice that the theorem environment (the AMS standard approach to writing theorems) \textit{thm} creates a large whitespace. Personally I don't like how this looks so I often actually just write \textbf{Theorem:} instead of using an environment.
+        Notice that the theorem environment (the AMS standard approach to writing theorems) manages its own whitespace and emphasizes the text in italics. I'm not sure why but this doesn't seem to play nice with some of my other packages (note the unusual spacing throughout this document). Because of this I often actually just write \textbf{Theorem.} instead of using an environment though this is considered very bad practice since it loses theorem numbering and other features (the \emph{correct} way to handle this is to define my own theorem environment).
 
       \qspace
 
       %Question 2
       \item[\textbf{2.XI}.]
-        Write a proof with several lemmas.
+        Write a large proof with several lemmas and a corollary.
 
         \aspace
 
-        Typically a person writes lemmas before getting to the proof itself in order to avoid confusion about what is being proven. However by using indentation it is possible to write a lemma inside the proof body (as a sort of nested subproof) without creating confusion. As an added bonus it eliminates any confusion inflicted on the reader when they are unable to figure out the reason for needing the lemma until getting to the proof itself.
+        Typically a person writes lemmas before getting to the proof itself in order to avoid confusion about what is being proven. However by using indentation it is possible to write a lemma inside the proof body (as a sort of nested subproof) without creating confusion. As an added bonus it eliminates any confusion inflicted on the reader when they are unable to figure out the reason for needing the lemma until getting to the proof itself. This style is very unusual, so if it looks strange to you then perhaps it's better not to use it.
 
-        The rule of thumb I use is that any lemma that stands on its own and any lemma that many proofs rely on should be written on its own outside the proof. Otherwise, any lemma that solely exists to support a specific proof should be written within the proof body (unless the lemma is huge or something). I find this akin to writing a program where some functions are defined inside the main functions and others are defined elsewhere. The analogy could be pushed further if one acknowledges the Curry-Howard correspondence.
+        When using indenting, the rule of thumb I use is that any lemma that stands on its own and any lemma that many proofs rely on should be written on its own outside the proof. Otherwise, any lemma that solely exists to support a specific proof should be written within the proof body (unless the lemma is huge or something). I find this akin to writing a program where some functions are defined inside the main functions and others are defined elsewhere. The analogy could be pushed further if one acknowledges the Curry-Howard correspondence.
 
         First we prove lemma 1.
 
-        \textbf{Lemma 1:} Lemma proof statement.
+        \begin{lem}
+          Lemma proof statement.
+        \end{lem}
         \begin{proof}
           Proof Body. \todo{Write out this proof}
         \end{proof}
 
         Next we prove lemma 2.
 
-        \textbf{Lemma 1:} Lemma proof statement.
+        \begin{lem}
+          Lemma proof statement.
+        \end{lem}
         \begin{proof}
           Proof Body. \todo{Write out this proof}
         \end{proof}
 
         Now we can move onto our main result.
 
-        \textbf{Theorem:} Main result proof statement.
+        \begin{thm}
+          Main result proof statement.
+        \end{thm}
         \begin{proof}
           We need to show that a number of things are satisfied.
 
           We can do this with lemmas.
 
-          First we prove sublemma 1.
-
+          First we prove a nested sublemma 1.
           \begin{addmargin}{1cm}
             \renewcommand{\qedsymbol}{$\contradiction$}
-            \textbf{Sublemma 1:} Sublemma proof statement.
+            \begin{lem}
+              Sublemma proof statement.
+            \end{lem}
             \begin{proof}
               Proof body. \todo{Write out this proof}
             \end{proof}
             \renewcommand{\qedsymbol}{$\square$}
           \end{addmargin}
 
-          Next we prove sublemma 2.
-
+          Next we prove a nested sublemma 2.
           \begin{addmargin}{1cm}
-            \textbf{Sublemma 2:} Sublemma proof statement.
+            \begin{lem}
+              Sublemma proof statement.
+            \end{lem}
             \begin{proof}
               Proof body. \todo{Write out this proof}
             \end{proof}
           \end{addmargin}
 
           Finally, by taking all of our lemmas together with the reference ~\cite{Steen} we can see the result is proven.
+        \end{proof}
+
+        Now we can include a corollary.
+        \begin{cor}
+          Corollary proof statement.
+        \end{cor}
+        \begin{proof}
+          Corollary proof body.
         \end{proof}
       \qspace
 
@@ -128,14 +144,15 @@
 
         \aspace
 
-        Cases are also very difficult to handle without using indentation via the addmargin command. They are the reason I began using the \textit{addmargin} environment.
+        Cases are also very difficult to handle without using indentation. They are the reason I began using the \textit{addmargin} environment, though a better approach would be to define an environment for handling cases.
 
-        \textbf{Theorem.} Proof statement.
+        \begin{lem}
+          Proof statement.
+        \end{lem}
         \begin{proof}
           We can break the problem into cases.
 
-          \textbf{Case 1:} ($x=0$)
-
+          \textbf{Case 1:} ($x<0$)
           \begin{addmargin}{1cm}
             Suppose $x=0$.
 
@@ -144,20 +161,18 @@
             Thus $P$ is true.
           \end{addmargin}
 
-          \textbf{Case 2:} ($x=1$)
-
+          \textbf{Case 2:} ($x=0$)
           \begin{addmargin}{1cm}
-            Suppose $x=1$.
+            Suppose $x=0$.
 
             Do things.
 
             Thus $P$ is true.
           \end{addmargin}
 
-          \textbf{Case 3:} ($x\neq 0$ and $x\neq 1$)
-
+          \textbf{Case 3:} ($x>0$)
           \begin{addmargin}{1cm}
-            Suppose $x\neq 0$ and $x\neq 1$.
+            Suppose $x>0$.
 
             Do things.
 
@@ -177,7 +192,10 @@
 
         Proofs by induction can be difficult and tedious to typeset and as such often just get handwaved away. I haven't quite settled on a standard way of writing them but this style seems to work.
 
-        \begin{proof} Proof Statement.
+        \begin{thm}
+           Proof Statement.
+        \end{thm}
+        \begin{proof} We proceed by induction.
 
         \textit{Basis:} Suppose $n=0$.
 
@@ -251,7 +269,7 @@
 
       %Question 6
       \item[\textbf{3.II Bonus}.]
-        Write a more complex equation.
+        Write some equations with cases.
 
         \aspace
 
