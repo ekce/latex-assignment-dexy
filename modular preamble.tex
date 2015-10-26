@@ -41,7 +41,7 @@
     \subsection{The Document class and typography packages}
       Here is the main set of packages that really affect the look and feel of the document.
 
-      I use the \textbf{KOMA-script} family of document classes. They are very similar to the default family of document classes except that they also provide by default a number of useful commands and environments that are more geared toward typography. This includes the \textbf{addmargin} environment that lets you indent blocks of text (note this using this is considered bad \LaTeX form since this sort of formatting should be handled by environments). There are four classes provided though I typically only use the article class, \textbf{scrartcl}. Here is a list of all the document classes it supports.
+      I use the \textbf{KOMA-script} family of document classes. They are very similar to the default family of document classes except that they also provide by default a number of useful commands and environments that are more geared toward typography. There are four classes provided though I typically only use the article class, \textbf{scrartcl}. Here is a list of all the document classes it supports.
 
       \begin{addmargin}{1cm}
         \begin{description}
@@ -52,11 +52,13 @@
         \end{description} 
       \end{addmargin}
 
-      Alternatively it is possible to only include parts of KOMA-script (as individual packages) within another class. For instance, if you wanted to use the \textbf{addmargin} environment in the default \textbf{article} document class then you would include the package \textbf{scrextend} within your document.
+      The \textit{letterpaper} option sets the paper size to the standard US size and the \textit{DIV} option sets the margins (a larger number means smaller margins). The \textit{DIV} option is typically used for books where a portion of the page is lost to cropping, binding, and gutter so it attempts to make the margins really large. I'm sort of abusing the feature here by making the margins undersized so that it gives me more space for indentation (this throws some harmless warnings).
+
+      One of the features KOMA-ScriptThis includes is the \textbf{addmargin} environment that lets you indent blocks of text (note this using this is considered bad \LaTeX form since this sort of formatting should be handled by environments). Alternatively it is possible to only include parts of KOMA-script (as individual packages) within another class. For instance, if you wanted to use the \textbf{addmargin} environment in the default \textbf{article} document class then you would include the package \textbf{scrextend} within your document.
 
       Note that I manually set the font for the document title so that it matches the default article class more closely using the command \textbackslash setkomafont.
 
-      The \textbf{geometry} package makes the margins smaller so that the page appears ``full size''.
+      The \textbf{geometry} package makes the margins smaller so that the page appears ``full size''. I currently have it disabled in favor of the \textit{DIV} option in KOMA-script.
 
       The \textbf{microtype} package is difficult to explain but easy to understand once you see it. Essentially it makes use of new \LaTeX{} typographical features that are aimed at improving kerning in a document. The only case where you may not want to use it is when presenting numbers in a table as it will try to line them up in a weird looking way ~\cite{Khirevich}.
 
