@@ -14,7 +14,8 @@
 
 
 % Font packages and commands
-\usepackage[sc]{mathpazo}                     % Provides Palatino typeface, options: sc = smallcaps, osf = oldstyle numerals.
+\usepackage[sc,osf]{mathpazo}                 % Provides Palatino typeface, options: sc = smallcaps, osf = oldstyle numerals.
+\normalfont                                   % necessary to make LaTeX aware of our choice of the base font
 \AtBeginDocument{                             % Provides AMS mathbb fonts.
   \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
   \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
