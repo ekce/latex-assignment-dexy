@@ -30,7 +30,7 @@ The sample file presents a simple example assignment.
 ## Workflow:
 Clone the repository with
 ```
-git clone https://github.com/ekce/latex-assignment.git
+git clone git@github.com:ekce/latex-assignment.git .
 ```
 Copy the *blank.tex* file and rename it to something else like *assignment.tex*. Then edit said file to begin working.
 
