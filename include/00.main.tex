@@ -14,15 +14,21 @@
 
 
 % Font packages and commands
-\usepackage[sc,osf]{mathpazo}                 % Provides Palatino typeface, options: sc = smallcaps, osf = oldstyle numerals.
-\normalfont                                   % necessary to make LaTeX aware of our choice of the base font
+\usepackage[sc,osf]{mathpazo}                 % Provides Palatino typeface, options: sc = smallcaps, osf = oldstyle numerals. (rm and math)
+\linespread{1.05}                             % Changes the vertical spacing between lines as recommended for Palatino fonts.
 \AtBeginDocument{                             % Provides AMS mathbb fonts.
   \DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
   \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
 }
-\linespread{1.05}                             % Changes the vertical spacing between lines as recommended for Palatino fonts.
+\usepackage[scaled]{helvet}                   % Helvetica (ss)
+%\usepackage{classico}                        % Classico (ss), broken
+%\usepackage{courier}                         % Courier (tt)
+%\renewcommand{\ttdefault}{lmtt}              % Latin Modern (tt)
+\usepackage[lf]{sourcecodepro}                % Source Code Pro (tt)
 \usepackage{mathrsfs}                         % Support for script (\mathscr) fonts.
 \usepackage{dtklogos}                         % Provides logos like \LaTex.
+\normalfont                                   % necessary to make LaTeX aware of our choice of the base font
+\usepackage[T1]{fontenc}                      % Tells LaTeX to use T1 encoded version of fonts when available
 
 
 % AMS math packages
