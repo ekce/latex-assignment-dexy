@@ -1,7 +1,7 @@
 # blank.tex|jinja:
+#   - hello.c|pyg|l
 #   - include/*.tex|jinja:
 #     - output: true
-#     - hello.c|pyg|l
 
 blank.tex|jinja:
   - hello.c|idio|l
