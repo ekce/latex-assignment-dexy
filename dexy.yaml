@@ -11,4 +11,4 @@ blank.tex|jinja:
 pastie.sty|pyg:
   - pyg: { 'ext' : '.sty' }
   - output: true
-  - contents: ' '
+#  - contents: ' '
