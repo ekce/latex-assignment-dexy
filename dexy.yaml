@@ -4,6 +4,11 @@
 #     - hello.c|pyg|l
 
 blank.tex|jinja:
-  - include/*.tex|jinja:
+  - hello.c|idio|l
+  - include/*.tex:
     - output: true
-    - hello.c|idio|l
+
+pastie.sty|pyg:
+  - pyg: { 'ext' : '.sty' }
+  - output: true
+  - contents: ' '
