@@ -1,1 +1,35 @@
-\usepackage{pastie}
+\usepackage{tcolorbox}
+\usepackage{pygment}
+
+%dark
+\definecolor{SundriedClay}{HTML}{272822}
+\newtcolorbox{monokai}[1][]{colback = SundriedClay!100, title = #1}
+
+\newtcolorbox{vim}[1][]{colback = black!100, title = #1} %rrt too
+
+\definecolor{ParaisoDark}{HTML}{2F1E2E}
+\newtcolorbox{paraisodark}[1][]{colback = ParaisoDark!100, title = #1}
+
+\definecolor{Native}{HTML}{202020}
+\newtcolorbox{native}[1][]{colback = Native!100, title = #1}
+
+\definecolor{Fruity}{HTML}{111111}
+\newtcolorbox{fruity}[1][]{colback = Fruity!100, title = #1}
+
+
+
+%light
+\definecolor{ParaisoLight}{HTML}{E7E9DB}
+\newtcolorbox{paraisolight}[1][]{colback = ParaisoLight!100, colbacktitle = blue!30!white, coltitle = blue!25!black, colframe = black!50!white, title = #1}
+
+\definecolor{Perldoc}{HTML}{EEEEDD}
+\newtcolorbox{perldoc}[1][]{colback = Perldoc!100, colbacktitle = blue!30!white, coltitle = blue!25!black, colframe = black!50!white, title = #1}
+
+\definecolor{Friendly}{HTML}{F0F0F0}
+\newtcolorbox{friendly}[1][]{colback = Friendly!100, colbacktitle = blue!30!white, coltitle = blue!25!black, colframe = black!50!white, title = #1}
+
+\definecolor{Emacs}{HTML}{F8F8F8} %default too 
+\newtcolorbox{emacs}[1][]{colback = Emacs!100, colbacktitle = blue!30!white, coltitle = blue!25!black, colframe = black!50!white, title = #1}
+
+\definecolor{Manni}{HTML}{F0F3F3}
+\newtcolorbox{manni}[1][]{colback = Manni!100, colbacktitle = blue!30!white, coltitle = blue!25!black, colframe = black!50!white, title = #1}

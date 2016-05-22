@@ -1,12 +1,15 @@
 *
 !include
-!include/*
+!include/00.main.tex
+!include/10.tikz.tex
+!include/20.commands.tex
+!include/30.dexy.tex
 !.dexy
 .dexy/*
 !.dexy/.dexy-generated
 !blank.tex
 !hello.c
-!pastie.sty
+!pygment.sty
 
 !LICENSE.md
 !README.md

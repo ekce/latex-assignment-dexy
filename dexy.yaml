@@ -8,7 +8,8 @@ blank.tex|jinja:
   - include/*.tex:
     - output: true
 
-pastie.sty|pyg:
-  - pyg: { 'ext' : '.sty' }
+#See 'pygmentize -L styles' for a list of styles
+pygment.sty|pyg:
+  - pyg: {ext: .sty, style: manni}
   - output: true
 #  - contents: ' '
