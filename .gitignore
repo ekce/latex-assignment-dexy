@@ -1,11 +1,16 @@
 *
-!/include/00.main.tex
-!/include/10.tikz.tex
-!/include/20.commands.tex
+!include
+!include/*
+!.dexy
+.dexy/*
+!.dexy/.dexy-generated
+!blank.tex
+!hello.c
+
 !LICENSE.md
 !README.md
+
 !modular preamble.tex
 !modular_preamble.pdf
 !sample.tex
 !sample.pdf
-!blank.tex
